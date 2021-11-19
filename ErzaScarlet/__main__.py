@@ -64,7 +64,7 @@ Hey I Am {}
 
 I can manage your group easily with many feautres and games. **Just add me in your group to use me.
 
-*Status*: [Working Fine](https://t.me/ErzaScarlet_Support)
+*Status*: [Working Fine](https://t.me/Villains_Association_1)
 *Life Force*: `100%`
 
 Too see commands send /help .
@@ -72,7 +72,7 @@ Too see commands send /help .
 
 
 HELP_STRINGS = """
-*Main Commands :* [ʕ·ᴥ·ʔ](https://telegra.ph/file/f14c63556a46189167eb7.jpg)
+*Main Commands :* [ʕ·ᴥ·ʔ](https://telegra.ph/file/f363db7f1ae1a7242c8c1.jpg)
 ✪ /start: Starts me! You've probably already used this.
 ✪ /help: Click this, I'll let you know about myself!
 ✪ /settings: 
@@ -80,9 +80,9 @@ HELP_STRINGS = """
    ◔ in a Group: will redirect you to pm, with all that chat's settings.
 """
 
-ErzaScarlet_IMG = "https://indianime.com/wp-content/uploads/2021/08/photo_2021-08-21_12-17-22.jpg)"
-ErzaScarlet_YAWN = "https://telegra.ph/file/baad9f6111310638c438c.mp4" #"https://telegra.ph/file/df5c1103ab9d539ab760d.gif"
-YAWN_CPT = "I am Awake ! ~ 💤"
+ErzaScarlet_IMG = "https://telegra.ph/file/120158e0c67110c829b47.jpg)"
+ErzaScarlet_YAWN = "https://telegra.ph/file/ce379d4780a18fd401da3.mp4" #"https://telegra.ph/file/df5c1103ab9d539ab760d.gif"
+YAWN_CPT = "I am here ! ~ 💤"
 
 IMPORTED = {}
 MIGRATEABLE = []
