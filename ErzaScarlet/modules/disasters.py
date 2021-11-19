@@ -67,17 +67,17 @@ def addpiro(update: Update, context: CallbackContext) -> str:
       message.reply_text("This member is already a Pro Developer")
         
     if user_id in DRAGONS:
-        rt += "Requested to promote a Dragon Disaster to Pro Developer."
+        rt += "Requested to promote a Higher Villian Disaster to Pro Developer."
         data['sudos'].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "Requested to promote a Demon Disaster to Pro Developer."
+        rt += "Requested to promote a Villian Disaster to Pro Developer."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "Requested to promote a Wolf Disaster to Pro Developer."
+        rt += "Requested to promote a Student Villian Disaster to Pro Developer."
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -124,16 +124,16 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        message.reply_text("This member is already a Dragon Disaster")
+        message.reply_text("This member is already a Higher Villian Disaster")
         return ""
 
     if user_id in DEMONS:
-        rt += "Requested to promote a Demon Disaster to Dragon."
+        rt += "Requested to promote a Villian Disaster to Dragon."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "Requested to promote a Wolf Disaster to Dragon."
+        rt += "Requested to promote a Student Villian Disaster to Dragon."
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -144,7 +144,7 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + "\nSuccessfully set Disaster level of {} to Dragon!".format(
+        rt + "\nSuccessfully set Disaster level of {} to Higher Villian!".format(
             user_member.first_name))
 
     log_message = (
@@ -183,16 +183,16 @@ def addsupport(
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "Requested to demote this Dragon to Demon"
+        rt += "Requested to demote this Higher Villian to Villian"
         data['sudos'].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        message.reply_text("This user is already a Demon Disaster.")
+        message.reply_text("This user is already a Villian Disaster.")
         return ""
 
     if user_id in WOLVES:
-        rt += "Requested to promote this Wolf Disaster to Demon"
+        rt += "Requested to promote this Student Villian Disaster to Villian"
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -203,7 +203,7 @@ def addsupport(
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\n{user_member.first_name} was added as a Demon Disaster!")
+        rt + f"\n{user_member.first_name} was added as a Villian Disaster!")
 
     log_message = (
         f"#SUPPORT\n"
@@ -238,17 +238,17 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "This member is a Dragon Disaster, Demoting to Wolf."
+        rt += "This member is a Higher Villian Disaster, Demoting to Student Villian."
         data['sudos'].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "This user is already a Demon Disaster, Demoting to Wolf."
+        rt += "This user is already a Villian Disaster, Demoting to Student Villian."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        message.reply_text("This user is already a Wolf Disaster.")
+        message.reply_text("This user is already a Student Villian Disaster.")
         return ""
 
     data['whitelists'].append(user_id)
@@ -259,7 +259,7 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
 
     update.effective_message.reply_text(
         rt +
-        f"\nSuccessfully promoted {user_member.first_name} to a Wolf Disaster!")
+        f"\nSuccessfully promoted {user_member.first_name} to a Student Villian Disaster!")
 
     log_message = (
         f"#WHITELIST\n"
@@ -294,22 +294,22 @@ def addtiger(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "This member is a Dragon Disaster, Demoting to Tiger."
+        rt += "This member is a Higher Villian Disaster, Demoting to Student."
         data['sudos'].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "This user is already a Demon Disaster, Demoting to Tiger."
+        rt += "This user is already a Villian Disaster, Demoting to Student."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "This user is already a Wolf Disaster, Demoting to Tiger."
+        rt += "This user is already a Student Villian Disaster, Demoting to Student."
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
     if user_id in TIGERS:
-        message.reply_text("This user is already a Tiger.")
+        message.reply_text("This user is already a Student.")
         return ""
 
     data['tigers'].append(user_id)
@@ -320,7 +320,7 @@ def addtiger(update: Update, context: CallbackContext) -> str:
 
     update.effective_message.reply_text(
         rt +
-        f"\nSuccessfully promoted {user_member.first_name} to a Tiger Disaster!"
+        f"\nSuccessfully promoted {user_member.first_name} to a Student Disaster!"
     )
 
     log_message = (
@@ -355,7 +355,7 @@ def rmpiro(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DEV_USERS:
-        message.reply_text("Requested AU to demote this user to Civilian")
+        message.reply_text("Requested Villian Association to demote this user to Civilian")
         DEV_USERS.remove(user_id)
         data['devs'].remove(user_id)
 
@@ -419,7 +419,7 @@ def removesudo(update: Update, context: CallbackContext) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a Dragon Disaster!")
+        message.reply_text("This user is not a Higher Villian Disaster!")
         return ""
 
 
@@ -462,7 +462,7 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a Demon level Disaster!")
+        message.reply_text("This user is not a Villian level Disaster!")
         return ""
 
 
@@ -504,7 +504,7 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a Wolf Disaster!")
+        message.reply_text("This user is not a Student Villian Disaster!")
         return ""
 
 
@@ -546,7 +546,7 @@ def removetiger(update: Update, context: CallbackContext) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a Tiger Disaster!")
+        message.reply_text("This user is not a Student Disaster!")
         return ""
 
 
