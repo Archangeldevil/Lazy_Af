@@ -9,7 +9,7 @@ from telegram.utils.helpers import mention_html
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CallbackContext, CommandHandler, Filters, CallbackQueryHandler
 
-from ErzaScarlet import LOGGER, TIGERS, dispatcher
+from ErzaScarlet import LOGGER, CROOKS, dispatcher
 from ErzaScarlet.modules.helper_funcs.chat_status import (
     bot_admin,
     user_admin,

@@ -3,7 +3,7 @@ import re
 from typing import Optional
 
 import telegram
-from ErzaScarlet import TIGERS, WOLVES, dispatcher
+from ErzaScarlet import CROOKS, ASSASSINS, dispatcher
 from ErzaScarlet.modules.disable import DisableAbleCommandHandler
 from ErzaScarlet.modules.helper_funcs.chat_status import (
     bot_admin,
@@ -58,21 +58,21 @@ def warn(
         # message.reply_text("Damn admins, They are too far to be One Punched!")
         return
 
-    if user.id in TIGERS:
+    if user.id in CROOKS:
         if warner:
-            message.reply_text("Tigers cant be warned.")
+            message.reply_text("CROOKs cant be warned.")
         else:
             message.reply_text(
-                "Tiger triggered an auto warn filter!\n I can't warn tigers but they should avoid abusing this."
+                "CROOK triggered an auto warn filter!\n I can't warn CROOKs but they should avoid abusing this."
             )
         return
 
-    if user.id in WOLVES:
+    if user.id in ASSASSINS:
         if warner:
             message.reply_text("Wolf disasters are warn immune.")
         else:
             message.reply_text(
-                "Wolf Disaster triggered an auto warn filter!\nI can't warn wolves but they should avoid abusing this."
+                "Wolf Disaster triggered an auto warn filter!\nI can't warn ASSASSINS but they should avoid abusing this."
             )
         return
 

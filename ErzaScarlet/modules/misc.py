@@ -23,7 +23,7 @@ from telegram.utils.helpers import escape_markdown, mention_html
 from telegram.error import BadRequest
 from telegram.ext.dispatcher import run_async
 
-from ErzaScarlet import (OWNER_ID, DRAGONS, DEMONS, WOLVES, DEV_USERS, dispatcher)
+from ErzaScarlet import (OWNER_ID, VILLIANS, DEMONS, ASSASSINS, DEV_USERS, dispatcher)
 from ErzaScarlet.__main__ import STATS, USER_INFO, GDPR
 from ErzaScarlet.modules.disable import DisableAbleCommandHandler
 from ErzaScarlet.modules.helper_funcs.extraction import extract_user, get_user

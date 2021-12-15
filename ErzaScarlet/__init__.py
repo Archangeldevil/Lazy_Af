@@ -40,7 +40,7 @@ if ENV:
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
 
     try:
-        DRAGONS = set(int(x) for x in os.environ.get("DRAGONS", "").split())
+        VILLIANS = set(int(x) for x in os.environ.get("VILLIANS", "").split())
         DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
     except ValueError:
        raise Exception("Your sudo or dev users list does not contain valid integers.")
@@ -51,14 +51,14 @@ if ENV:
         raise Exception("Your support users list does not contain valid integers.")
 
     try:
-        WOLVES = set(int(x) for x in os.environ.get("WOLVES", "").split())
+        ASSASSINS = set(int(x) for x in os.environ.get("ASSASSINS", "").split())
     except ValueError:
         raise Exception("Your whitelisted users list does not contain valid integers.")
 
     try:
-        TIGERS = set(int(x) for x in os.environ.get("TIGERS", "").split())
+        CROOKS = set(int(x) for x in os.environ.get("CROOKS", "").split())
     except ValueError:
-        raise Exception("Your tiger users list does not contain valid integers.")
+        raise Exception("Your CROOK users list does not contain valid integers.")
 
     INFOPIC = bool(os.environ.get("INFOPIC", False))
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None)
@@ -120,7 +120,7 @@ else:
     OWNER_USERNAME = Config.OWNER_USERNAME
 
     try:
-        DRAGONS = set(int(x) for x in Config.DRAGONS or [])
+        VILLIANS = set(int(x) for x in Config.VILLIANS or [])
         DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
     except ValueError:
         raise Exception("Your sudo or dev users list does not contain valid integers.")
@@ -131,14 +131,14 @@ else:
         raise Exception("Your support users list does not contain valid integers.")
 
     try:
-        WOLVES = set(int(x) for x in Config.WOLVES or [])
+        ASSASSINS = set(int(x) for x in Config.ASSASSINS or [])
     except ValueError:
         raise Exception("Your whitelisted users list does not contain valid integers.")
 
     try:
-        TIGERS = set(int(x) for x in Config.TIGERS or [])
+        CROOKS = set(int(x) for x in Config.CROOKS or [])
     except ValueError:
-        raise Exception("Your tiger users list does not contain valid integers.")
+        raise Exception("Your CROOK users list does not contain valid integers.")
 
     EVENT_LOGS = Config.EVENT_LOGS
     WEBHOOK = Config.WEBHOOK
@@ -172,7 +172,7 @@ else:
     except ValueError:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
-DRAGONS.add(OWNER_ID)
+VILLIANS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 
 if not SPAMWATCH_API:
@@ -204,11 +204,11 @@ dispatcher = updater.dispatcher
 
 
 
-DRAGONS = list(DRAGONS) + list(DEV_USERS)
+VILLIANS = list(VILLIANS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
-WOLVES = list(WOLVES)
+ASSASSINS = list(ASSASSINS)
 DEMONS = list(DEMONS)
-TIGERS = list(TIGERS)
+CROOKS = list(CROOKS)
 
 # Load at end to ensure all prev variables have been set
 from ErzaScarlet.modules.helper_funcs.handlers import (

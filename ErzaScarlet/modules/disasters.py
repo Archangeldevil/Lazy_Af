@@ -3,8 +3,8 @@ import json
 import os
 from typing import Optional
 
-from ErzaScarlet import (DEV_USERS, OWNER_ID, DRAGONS, SUPPORT_CHAT, DEMONS,
-                          TIGERS, WOLVES, dispatcher)
+from ErzaScarlet import (DEV_USERS, OWNER_ID, VILLIANS, SUPPORT_CHAT, DEMONS,
+                          CROOKS, ASSASSINS, dispatcher)
 from ErzaScarlet.modules.helper_funcs.chat_status import (dev_plus, sudo_plus,
                                                            whitelist_plus)
 from ErzaScarlet.modules.helper_funcs.extraction import extract_user
@@ -66,20 +66,20 @@ def addpiro(update: Update, context: CallbackContext) -> str:
     if int(user_id) in DEV_USERS:
       message.reply_text("This member is already a Pro Developer")
         
-    if user_id in DRAGONS:
+    if user_id in VILLIANS:
         rt += "Requested to promote a Higher Villian Disaster to Pro Developer."
         data['sudos'].remove(user_id)
-        DRAGONS.remove(user_id)
+        VILLIANS.remove(user_id)
 
     if user_id in DEMONS:
         rt += "Requested to promote a Villian Disaster to Pro Developer."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
-    if user_id in WOLVES:
+    if user_id in ASSASSINS:
         rt += "Requested to promote a Student Villian Disaster to Pro Developer."
         data['whitelists'].remove(user_id)
-        WOLVES.remove(user_id)
+        ASSASSINS.remove(user_id)
 
     data['devs'].append(user_id)
     DEV_USERS.append(user_id)
@@ -123,22 +123,22 @@ def addsudo(update: Update, context: CallbackContext) -> str:
     with open(ELEVATED_USERS_FILE, 'r') as infile:
         data = json.load(infile)
 
-    if user_id in DRAGONS:
+    if user_id in VILLIANS:
         message.reply_text("This member is already a Higher Villian Disaster")
         return ""
 
     if user_id in DEMONS:
-        rt += "Requested to promote a Villian Disaster to Dragon."
+        rt += "Requested to promote a Villian Disaster to VILLIAN."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
-    if user_id in WOLVES:
-        rt += "Requested to promote a Student Villian Disaster to Dragon."
+    if user_id in ASSASSINS:
+        rt += "Requested to promote a Student Villian Disaster to VILLIAN."
         data['whitelists'].remove(user_id)
-        WOLVES.remove(user_id)
+        ASSASSINS.remove(user_id)
 
     data['sudos'].append(user_id)
-    DRAGONS.append(user_id)
+    VILLIANS.append(user_id)
 
     with open(ELEVATED_USERS_FILE, 'w') as outfile:
         json.dump(data, outfile, indent=4)
@@ -182,19 +182,19 @@ def addsupport(
     with open(ELEVATED_USERS_FILE, 'r') as infile:
         data = json.load(infile)
 
-    if user_id in DRAGONS:
+    if user_id in VILLIANS:
         rt += "Requested to demote this Higher Villian to Villian"
         data['sudos'].remove(user_id)
-        DRAGONS.remove(user_id)
+        VILLIANS.remove(user_id)
 
     if user_id in DEMONS:
         message.reply_text("This user is already a Villian Disaster.")
         return ""
 
-    if user_id in WOLVES:
+    if user_id in ASSASSINS:
         rt += "Requested to promote this Student Villian Disaster to Villian"
         data['whitelists'].remove(user_id)
-        WOLVES.remove(user_id)
+        ASSASSINS.remove(user_id)
 
     data['supports'].append(user_id)
     DEMONS.append(user_id)
@@ -237,22 +237,22 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
     with open(ELEVATED_USERS_FILE, 'r') as infile:
         data = json.load(infile)
 
-    if user_id in DRAGONS:
+    if user_id in VILLIANS:
         rt += "This member is a Higher Villian Disaster, Demoting to Student Villian."
         data['sudos'].remove(user_id)
-        DRAGONS.remove(user_id)
+        VILLIANS.remove(user_id)
 
     if user_id in DEMONS:
         rt += "This user is already a Villian Disaster, Demoting to Student Villian."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
-    if user_id in WOLVES:
+    if user_id in ASSASSINS:
         message.reply_text("This user is already a Student Villian Disaster.")
         return ""
 
     data['whitelists'].append(user_id)
-    WOLVES.append(user_id)
+    ASSASSINS.append(user_id)
 
     with open(ELEVATED_USERS_FILE, 'w') as outfile:
         json.dump(data, outfile, indent=4)
@@ -276,7 +276,7 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
 @run_async
 @sudo_plus
 @gloggable
-def addtiger(update: Update, context: CallbackContext) -> str:
+def addCROOK(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     user = update.effective_user
     chat = update.effective_chat
@@ -293,27 +293,27 @@ def addtiger(update: Update, context: CallbackContext) -> str:
     with open(ELEVATED_USERS_FILE, 'r') as infile:
         data = json.load(infile)
 
-    if user_id in DRAGONS:
+    if user_id in VILLIANS:
         rt += "This member is a Higher Villian Disaster, Demoting to Student."
         data['sudos'].remove(user_id)
-        DRAGONS.remove(user_id)
+        VILLIANS.remove(user_id)
 
     if user_id in DEMONS:
         rt += "This user is already a Villian Disaster, Demoting to Student."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
-    if user_id in WOLVES:
+    if user_id in ASSASSINS:
         rt += "This user is already a Student Villian Disaster, Demoting to Student."
         data['whitelists'].remove(user_id)
-        WOLVES.remove(user_id)
+        ASSASSINS.remove(user_id)
 
-    if user_id in TIGERS:
+    if user_id in CROOKS:
         message.reply_text("This user is already a Student.")
         return ""
 
-    data['tigers'].append(user_id)
-    TIGERS.append(user_id)
+    data['CROOKs'].append(user_id)
+    CROOKS.append(user_id)
 
     with open(ELEVATED_USERS_FILE, 'w') as outfile:
         json.dump(data, outfile, indent=4)
@@ -324,7 +324,7 @@ def addtiger(update: Update, context: CallbackContext) -> str:
     )
 
     log_message = (
-        f"#TIGER\n"
+        f"#CROOK\n"
         f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))} \n"
         f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
     )
@@ -398,9 +398,9 @@ def removesudo(update: Update, context: CallbackContext) -> str:
     with open(ELEVATED_USERS_FILE, 'r') as infile:
         data = json.load(infile)
 
-    if user_id in DRAGONS:
+    if user_id in VILLIANS:
         message.reply_text("Requested to demote this user to Civilian")
-        DRAGONS.remove(user_id)
+        VILLIANS.remove(user_id)
         data['sudos'].remove(user_id)
 
         with open(ELEVATED_USERS_FILE, 'w') as outfile:
@@ -485,9 +485,9 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
     with open(ELEVATED_USERS_FILE, 'r') as infile:
         data = json.load(infile)
 
-    if user_id in WOLVES:
+    if user_id in ASSASSINS:
         message.reply_text("Demoting to normal user")
-        WOLVES.remove(user_id)
+        ASSASSINS.remove(user_id)
         data['whitelists'].remove(user_id)
 
         with open(ELEVATED_USERS_FILE, 'w') as outfile:
@@ -511,7 +511,7 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
 @run_async
 @sudo_plus
 @gloggable
-def removetiger(update: Update, context: CallbackContext) -> str:
+def removeCROOK(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     user = update.effective_user
     chat = update.effective_chat
@@ -527,16 +527,16 @@ def removetiger(update: Update, context: CallbackContext) -> str:
     with open(ELEVATED_USERS_FILE, 'r') as infile:
         data = json.load(infile)
 
-    if user_id in TIGERS:
+    if user_id in CROOKS:
         message.reply_text("Demoting to normal user")
-        TIGERS.remove(user_id)
-        data['tigers'].remove(user_id)
+        CROOKS.remove(user_id)
+        data['CROOKs'].remove(user_id)
 
         with open(ELEVATED_USERS_FILE, 'w') as outfile:
             json.dump(data, outfile, indent=4)
 
         log_message = (
-            f"#UNTIGER\n"
+            f"#UNCROOK\n"
             f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
             f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
         )
@@ -555,7 +555,7 @@ def removetiger(update: Update, context: CallbackContext) -> str:
 def whitelistlist(update: Update, context: CallbackContext):
     reply = "<b>Known Student Villians Disasters 🐺:</b>\n"
     bot = context.bot
-    for each_user in WOLVES:
+    for each_user in ASSASSINS:
         user_id = int(each_user)
         try:
             user = bot.get_chat(user_id)
@@ -568,10 +568,10 @@ def whitelistlist(update: Update, context: CallbackContext):
 
 @run_async
 @whitelist_plus
-def tigerlist(update: Update, context: CallbackContext):
+def CROOKlist(update: Update, context: CallbackContext):
     reply = "<b>Known Student Disasters 🐯:</b>\n"
     bot = context.bot
-    for each_user in TIGERS:
+    for each_user in CROOKS:
         user_id = int(each_user)
         try:
             user = bot.get_chat(user_id)
@@ -600,7 +600,7 @@ def supportlist(update: Update, context: CallbackContext):
 @whitelist_plus
 def sudolist(update: Update, context: CallbackContext):
     bot = context.bot
-    true_sudo = list(set(DRAGONS) - set(DEV_USERS))
+    true_sudo = list(set(VILLIANS) - set(DEV_USERS))
     reply = "<b>Known Higher Villians Disasters 🐉:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
@@ -632,47 +632,47 @@ def devlist(update: Update, context: CallbackContext):
 
 
 DEV_HANDLER = CommandHandler(("addpiro", "addsudo"), addpiro)
-SUDO_HANDLER = CommandHandler(("addsudo", "adddragon"), addsudo)
+SUDO_HANDLER = CommandHandler(("addsudo", "addVILLIAN"), addsudo)
 SUPPORT_HANDLER = CommandHandler(("addsupport", "adddemon"), addsupport)
-TIGER_HANDLER = CommandHandler(("addtiger"), addtiger)
+CROOK_HANDLER = CommandHandler(("addCROOK"), addCROOK)
 WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addwolf"), addwhitelist)
 
 RMPIRO_HANDLER = CommandHandler(("rmpiro", "removesudo"), rmpiro)
-UNSUDO_HANDLER = CommandHandler(("removesudo", "removedragon"), removesudo)
+UNSUDO_HANDLER = CommandHandler(("removesudo", "removeVILLIAN"), removesudo)
 UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removedemon"),
                                    removesupport)
-UNTIGER_HANDLER = CommandHandler(("removetiger"), removetiger)
+UNCROOK_HANDLER = CommandHandler(("removeCROOK"), removeCROOK)
 UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removewolf"),
                                      removewhitelist)
 
-WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "wolves"],
+WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "ASSASSINS"],
                                        whitelistlist)
-TIGERLIST_HANDLER = CommandHandler(["tigers"], tigerlist)
+CROOKLIST_HANDLER = CommandHandler(["CROOKs"], CROOKlist)
 SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "demons"], supportlist)
-SUDOLIST_HANDLER = CommandHandler(["sudolist", "dragons"], sudolist)
+SUDOLIST_HANDLER = CommandHandler(["sudolist", "VILLIANs"], sudolist)
 DEVLIST_HANDLER = CommandHandler(["devlist", "heroes"], devlist)
 
 dispatcher.add_handler(DEV_HANDLER)
 dispatcher.add_handler(SUDO_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
-dispatcher.add_handler(TIGER_HANDLER)
+dispatcher.add_handler(CROOK_HANDLER)
 dispatcher.add_handler(WHITELIST_HANDLER)
 
 dispatcher.add_handler(RMPIRO_HANDLER)
 dispatcher.add_handler(UNSUDO_HANDLER)
 dispatcher.add_handler(UNSUPPORT_HANDLER)
-dispatcher.add_handler(UNTIGER_HANDLER)
+dispatcher.add_handler(UNCROOK_HANDLER)
 dispatcher.add_handler(UNWHITELIST_HANDLER)
 
 dispatcher.add_handler(WHITELISTLIST_HANDLER)
-dispatcher.add_handler(TIGERLIST_HANDLER)
+dispatcher.add_handler(CROOKLIST_HANDLER)
 dispatcher.add_handler(SUPPORTLIST_HANDLER)
 dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(DEVLIST_HANDLER)
 
 __handlers__ = [
-    DEV_HANDLER, SUDO_HANDLER, SUPPORT_HANDLER, TIGER_HANDLER, WHITELIST_HANDLER,
-    RMPIRO_HANDLER, UNSUDO_HANDLER, UNSUPPORT_HANDLER, UNTIGER_HANDLER, UNWHITELIST_HANDLER,
-    WHITELISTLIST_HANDLER, TIGERLIST_HANDLER, SUPPORTLIST_HANDLER,
+    DEV_HANDLER, SUDO_HANDLER, SUPPORT_HANDLER, CROOK_HANDLER, WHITELIST_HANDLER,
+    RMPIRO_HANDLER, UNSUDO_HANDLER, UNSUPPORT_HANDLER, UNCROOK_HANDLER, UNWHITELIST_HANDLER,
+    WHITELISTLIST_HANDLER, CROOKLIST_HANDLER, SUPPORTLIST_HANDLER,
     SUDOLIST_HANDLER, DEVLIST_HANDLER
 ]

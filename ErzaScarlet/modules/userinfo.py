@@ -14,7 +14,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
 
-from ErzaScarlet import (DEV_USERS, OWNER_ID, DRAGONS, DEMONS, TIGERS, WOLVES,
+from ErzaScarlet import (DEV_USERS, OWNER_ID, VILLIANS, DEMONS, CROOKS, ASSASSINS,
                           INFOPIC, dispatcher, sw)
 from ErzaScarlet.__main__ import STATS, TOKEN, USER_INFO
 import ErzaScarlet.modules.sql.userinfo_sql as sql
@@ -25,7 +25,7 @@ from ErzaScarlet.modules.sql.users_sql import get_user_num_chats
 from ErzaScarlet.modules.sql.feds_sql import get_user_fbanlist
 from ErzaScarlet.modules.helper_funcs.chat_status import sudo_plus
 from ErzaScarlet.modules.helper_funcs.extraction import extract_user
-from ErzaScarlet import telethn as ErzaScarletTelethonClient, TIGERS, DRAGONS, DEMONS
+from ErzaScarlet import telethn as ErzaScarletTelethonClient, CROOKS, VILLIANS, DEMONS
 
 
 def no_by_per(totalhp, percentage):
@@ -155,7 +155,7 @@ def get_id(update: Update, context: CallbackContext):
 @ErzaScarletTelethonClient.on(
     events.NewMessage(
         pattern='/ginfo ',
-        from_users=(TIGERS or []) + (DRAGONS or []) + (DEMONS or [])))
+        from_users=(CROOKS or []) + (VILLIANS or []) + (DEMONS or [])))
 async def group_info(event) -> None:
     chat = event.text.split(' ', 1)[1]
     try:
@@ -277,16 +277,16 @@ def info(update: Update, context: CallbackContext):
     elif user.id in DEV_USERS:
         text += "\n\n<b>Natsu!</b>"
         disaster_level_present = True
-    elif user.id in DRAGONS:
+    elif user.id in VILLIANS:
         text += "\n\n<b>Erza!</b>"
         disaster_level_present = True
     elif user.id in DEMONS:
         text += "\n\n<b>Gray!</b>"
         disaster_level_present = True
-    elif user.id in TIGERS:
+    elif user.id in CROOKS:
         text += "\n\n<b>Mirajane!</b>"
         disaster_level_present = True
-    elif user.id in WOLVES:
+    elif user.id in ASSASSINS:
         text += "\n\n<b>Laxus!</b>"
         disaster_level_present = True
 

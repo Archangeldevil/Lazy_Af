@@ -5,8 +5,8 @@ import time
 from functools import partial
 
 import ErzaScarlet.modules.sql.welcome_sql as sql
-from ErzaScarlet import (DEV_USERS, LOGGER, OWNER_ID, DRAGONS, DEMONS, TIGERS,
-                          WOLVES, sw, dispatcher, JOIN_LOGGER)
+from ErzaScarlet import (DEV_USERS, LOGGER, OWNER_ID, VILLIANS, DEMONS, CROOKS,
+                          ASSASSINS, sw, dispatcher, JOIN_LOGGER)
 from ErzaScarlet.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
     user_admin,
@@ -193,7 +193,7 @@ def new_member(update: Update, context: CallbackContext):
                 continue
 
             # Welcome Sudos
-            elif new_mem.id in DRAGONS:
+            elif new_mem.id in VILLIANS:
                 update.effective_message.reply_text(
                     "Huh! Higher Villian just joined! Stay Alert!",
                     reply_to_message_id=reply,
@@ -209,14 +209,14 @@ def new_member(update: Update, context: CallbackContext):
                 continue
 
             # Welcome Whitelisted
-            elif new_mem.id in TIGERS:
+            elif new_mem.id in CROOKS:
                 update.effective_message.reply_text(
                     "Oof! A Student Villian disaster just joined!",
                     reply_to_message_id=reply)
                 continue
 
-            # Welcome Tigers
-            elif new_mem.id in WOLVES:
+            # Welcome CROOKs
+            elif new_mem.id in ASSASSINS:
                 update.effective_message.reply_text(
                     "Oof! A Student disaster just joined!",
                     reply_to_message_id=reply)

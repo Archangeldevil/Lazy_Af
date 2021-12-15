@@ -1,6 +1,6 @@
 import html
 
-from ErzaScarlet import (LOGGER, DRAGONS, TIGERS, WOLVES, dispatcher)
+from ErzaScarlet import (LOGGER, DRAGONS, CROOKS, ASSASSINS, dispatcher)
 from ErzaScarlet.modules.helper_funcs.chat_status import (user_admin,
                                                            user_not_admin)
 from ErzaScarlet.modules.log_channel import loggable
@@ -13,7 +13,7 @@ from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
 from telegram.utils.helpers import mention_html
 
 REPORT_GROUP = 12
-REPORT_IMMUNE_USERS = DRAGONS + TIGERS + WOLVES
+REPORT_IMMUNE_USERS = DRAGONS + CROOKS + ASSASSINS
 
 
 @run_async

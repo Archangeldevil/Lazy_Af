@@ -5,8 +5,8 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-from ErzaScarlet import (DEV_USERS, LOGGER, OWNER_ID, DRAGONS, DEMONS, TIGERS,
-                          WOLVES, dispatcher)
+from ErzaScarlet import (DEV_USERS, LOGGER, OWNER_ID, VIILIANS, DEMONS, CROOKS,
+                          ASSASSINS, dispatcher)
 from ErzaScarlet.modules.disable import DisableAbleCommandHandler
 from ErzaScarlet.modules.helper_funcs.chat_status import (
     bot_admin, can_restrict, connection_status, is_user_admin,
@@ -57,21 +57,21 @@ def ban(update: Update, context: CallbackContext) -> str:
         elif user_id in DEV_USERS:
             message.reply_text("I can't act against our own.")
             return log_message
-        elif user_id in DRAGONS:
+        elif user_id in VIILIANS:
             message.reply_text(
-                "Fighting this Dragon here will put civilian lives at risk.")
+                "Fighting this VIILIAN here will put civilian lives at risk.")
             return log_message
         elif user_id in DEMONS:
             message.reply_text(
                 "Bring an order from Supreme Commander to fight a Demon disaster."
             )
             return log_message
-        elif user_id in TIGERS:
+        elif user_id in CROOKS:
             message.reply_text(
-                "Bring an order from Supreme Commander to fight a Tiger disaster."
+                "Bring an order from Supreme Commander to fight a CROOK disaster."
             )
             return log_message
-        elif user_id in WOLVES:
+        elif user_id in ASSASSINS:
             message.reply_text("Wolf abilities make them ban immune!")
             return log_message
         else:
@@ -519,7 +519,7 @@ def selfunban(context: CallbackContext, update: Update) -> str:
     message = update.effective_message
     user = update.effective_user
     bot, args = context.bot, context.args
-    if user.id not in DRAGONS or user.id not in TIGERS:
+    if user.id not in VIILIANS or user.id not in CROOKS:
         return
 
     try:

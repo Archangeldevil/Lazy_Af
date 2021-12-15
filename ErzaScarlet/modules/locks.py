@@ -10,7 +10,7 @@ from telegram.utils.helpers import mention_html
 from alphabet_detector import AlphabetDetector
 
 import ErzaScarlet.modules.sql.locks_sql as sql
-from ErzaScarlet import dispatcher, DRAGONS, LOGGER, REDIS
+from ErzaScarlet import dispatcher, VILLIANS, LOGGER, REDIS
 from ErzaScarlet.modules.disable import DisableAbleCommandHandler
 from ErzaScarlet.modules.helper_funcs.chat_status import (
     can_delete,
