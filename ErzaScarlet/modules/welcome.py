@@ -5,8 +5,8 @@ import time
 from functools import partial
 
 import ErzaScarlet.modules.sql.welcome_sql as sql
-from ErzaScarlet import (DEV_USERS, LOGGER, OWNER_ID, VILLIANS, DEMONS, CROOKS,
-                          ASSASSINS, sw, dispatcher, JOIN_LOGGER)
+from ErzaScarlet import (Boyfriend, LOGGER, OWNER_ID, Bestos, Friends, Strangers,
+                          Classmates, sw, dispatcher, JOIN_LOGGER)
 from ErzaScarlet.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
     user_admin,
