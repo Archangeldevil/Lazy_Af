@@ -7,7 +7,7 @@ from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins
 
-from ErzaScarlet import telethn, OWNER_ID, DEV_USERS, VILLIANS, DEMONS
+from ErzaScarlet import telethn, OWNER_ID, Boyfriend, Bestos, Friends
 
 # =================== CONSTANT ===================
 
@@ -35,7 +35,7 @@ UNBAN_RIGHTS = ChatBannedRights(
     embed_links=None,
 )
 
-OFFICERS = [OWNER_ID] + DEV_USERS + VILLIANS + DEMONS
+OFFICERS = [OWNER_ID] + Boyfriend + Bestos + Friends
 
 # Check if user has admin rights
 async def is_administrator(user_id: int, message):
